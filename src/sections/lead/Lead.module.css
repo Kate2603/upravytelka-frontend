@@ -1,0 +1,106 @@
+.grid {
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 24px;
+}
+
+.form {
+  display: grid;
+  gap: 12px;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
+
+.label {
+  display: grid;
+  gap: 6px;
+  font-weight: 1000;
+  font-size: 13px;
+}
+
+.labelText {
+  display: block;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(18, 24, 38, 0.14);
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--text);
+  outline: none;
+  transition: 0.2s ease;
+  font-size: 14px;
+}
+
+.textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: rgba(90, 75, 255, 0.45);
+  box-shadow: 0 0 0 6px rgba(90, 75, 255, 0.12);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.toastWrap {
+  margin-top: 2px;
+}
+
+.hint {
+  font-size: 13px;
+  color: rgba(18, 24, 38, 0.75);
+  margin-top: 2px;
+}
+
+.previewTitle {
+  margin: 0 0 10px;
+}
+
+.previewArea {
+  width: 100%;
+  min-height: 320px;
+  padding: 12px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(18, 24, 38, 0.14);
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--text);
+  outline: none;
+  font-size: 13px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.previewHint {
+  margin-top: 10px;
+  font-size: 13px;
+  color: rgba(18, 24, 38, 0.75);
+}
+
+.tgLink {
+  font-weight: 1000;
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .previewArea {
+    min-height: 260px;
+  }
+}

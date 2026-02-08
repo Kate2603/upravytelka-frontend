@@ -1,0 +1,38 @@
+.footer {
+  padding: 28px 0 44px;
+  border-top: 1px solid var(--line);
+  margin-top: 20px;
+  color: rgba(18, 24, 38, 0.75);
+  font-size: 13px;
+}
+
+.row {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.muted {
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.links a {
+  color: rgba(18, 24, 38, 0.75);
+  padding: 8px 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(18, 24, 38, 0.1);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.links a:hover {
+  background: rgba(255, 255, 255, 0.95);
+}

@@ -1,0 +1,18 @@
+.toast {
+  margin-top: 12px;
+  padding: 12px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(18, 24, 38, 0.12);
+  background: rgba(255, 255, 255, 0.9);
+  color: rgba(18, 24, 38, 0.92);
+}
+
+.ok {
+  border-color: rgba(22, 163, 74, 0.22);
+  background: rgba(22, 163, 74, 0.08);
+}
+
+.error {
+  border-color: rgba(225, 29, 72, 0.22);
+  background: rgba(225, 29, 72, 0.06);
+}
