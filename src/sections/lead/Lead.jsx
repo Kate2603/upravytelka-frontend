@@ -7,8 +7,6 @@ import { Grid2 } from '../../components/ui/Grid.jsx';
 import { submitLead } from '../../lib/api.js';
 import styles from './Lead.module.css';
 
-// У проді: VITE_API_BASE = https://<render-domain>
-// У локалі (якщо не задано) — працює з localhost бекенду
 const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8080';
 
 function buildMessage(payload) {
@@ -32,9 +30,7 @@ function buildMessage(payload) {
 
 Запит:
 ${payload.needs}
-
-Побажання:
-— хочу передати нерухомість під управління "під ключ" у Харкові, з контролем оренди та оплатою комунальних без боргів.`;
+`;
 }
 
 function validate(form) {
@@ -74,7 +70,7 @@ export default function Lead() {
       await navigator.clipboard.writeText(preview);
       setStatus({
         type: 'ok',
-        text: 'Скопійовано ✅ Можете вставити текст у Telegram та надіслати Катерині.',
+        text: 'Скопійовано ✅ Вставте текст у Telegram і надішліть.',
       });
     } catch {
       setStatus({
@@ -101,6 +97,7 @@ export default function Lead() {
     }
 
     setSending(true);
+
     try {
       const payload = {
         ...form,
@@ -141,7 +138,7 @@ export default function Lead() {
     <Section
       id="lead"
       title="Заявка на консультацію"
-      subtitle="Заповніть форму — я отримаю заявку в Telegram і зв’яжуся з вами."
+      subtitle="Заповніть форму — і заявка прийде Катерині в Telegram."
     >
       <Grid2 className={styles.grid}>
         <Card>
@@ -252,7 +249,7 @@ export default function Lead() {
             </div>
 
             <div className={styles.hint}>
-              Заявка відправляється напряму Катерині в Telegram через сервер.
+              Заявка відправляється Катерині в Telegram через сервер.
             </div>
           </form>
         </Card>
@@ -261,7 +258,7 @@ export default function Lead() {
           <h3 className={styles.previewTitle}>Попередній перегляд</h3>
           <textarea className={styles.previewArea} readOnly value={preview} />
           <div className={styles.previewHint}>
-            Якщо хочете — просто скопіюйте й надішліть у Telegram:{' '}
+            Якщо потрібно — скопіюйте текст і надішліть у Telegram:{' '}
             <a
               className={styles.tgLink}
               href="https://t.me/Kitivell"

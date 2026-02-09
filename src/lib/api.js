@@ -1,6 +1,6 @@
 export async function submitLead(apiBase, payload) {
-  const base = (apiBase || '').replace(/\/$/, '');
-  if (!base) throw new Error('Не налаштовано API (VITE_API_BASE).');
+  const base = String(apiBase || '').replace(/\/$/, '');
+  if (!base) throw new Error('API base не налаштовано.');
 
   const url = `${base}/api/lead`;
 
