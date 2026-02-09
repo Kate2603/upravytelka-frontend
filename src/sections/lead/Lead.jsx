@@ -7,7 +7,11 @@ import { Grid2 } from '../../components/ui/Grid.jsx';
 import { submitLead } from '../../lib/api.js';
 import styles from './Lead.module.css';
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8080';
+// На проді має бути задано VITE_API_BASE (Cloudflare Pages).
+// В dev — можна падати назад на localhost.
+const API_BASE =
+  import.meta.env.VITE_API_BASE ||
+  (import.meta.env.DEV ? 'http://localhost:8080' : '');
 
 function buildMessage(payload) {
   const dt = new Intl.DateTimeFormat('uk-UA', {
@@ -96,6 +100,14 @@ export default function Lead() {
       return;
     }
 
+    if (!API_BASE) {
+      setStatus({
+        type: 'error',
+        text: 'API_BASE не налаштовано. На проді додайте VITE_API_BASE у Cloudflare Pages.',
+      });
+      return;
+    }
+
     setSending(true);
 
     try {
@@ -106,6 +118,11 @@ export default function Lead() {
       };
 
       await submitLead(API_BASE, payload);
+
+      // прибираємо hash (#lead), щоб після успіху не було дивних “перекидів”
+      if (window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname);
+      }
 
       setStatus({
         type: 'ok',

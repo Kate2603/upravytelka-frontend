@@ -1,8 +1,13 @@
-import React from "react";
-import Button from "../../components/ui/Button.jsx";
-import styles from "./Topbar.module.css";
+import React from 'react';
+import Button from '../../components/ui/Button.jsx';
+import styles from './Topbar.module.css';
 
 export default function Topbar({ onNav }) {
+  function navTo(e, hash) {
+    e.preventDefault();
+    onNav?.(hash);
+  }
+
   return (
     <header className={styles.topbar}>
       <div className="container">
@@ -10,76 +15,34 @@ export default function Topbar({ onNav }) {
           <a
             className={styles.brand}
             href="#top"
-            onClick={(e) => {
-              e.preventDefault();
-              onNav?.("#top");
-            }}
+            onClick={e => navTo(e, '#top')}
           >
             <span className={styles.logo} aria-hidden="true" />
             <span className={styles.brandText}>Управителька</span>
           </a>
 
           <nav className={styles.nav} aria-label="Навігація">
-            <a
-              href="#about"
-              onClick={(e) => {
-                e.preventDefault();
-                onNav?.("#about");
-              }}
-            >
+            <a href="#about" onClick={e => navTo(e, '#about')}>
               Хто я
             </a>
-            <a
-              href="#services"
-              onClick={(e) => {
-                e.preventDefault();
-                onNav?.("#services");
-              }}
-            >
+            <a href="#services" onClick={e => navTo(e, '#services')}>
               Послуги
             </a>
-            <a
-              href="#process"
-              onClick={(e) => {
-                e.preventDefault();
-                onNav?.("#process");
-              }}
-            >
+            <a href="#process" onClick={e => navTo(e, '#process')}>
               Як працюємо
             </a>
-            <a
-              href="#why"
-              onClick={(e) => {
-                e.preventDefault();
-                onNav?.("#why");
-              }}
-            >
+            <a href="#why" onClick={e => navTo(e, '#why')}>
               Чому зручно
             </a>
-            <a
-              href="#benefits"
-              onClick={(e) => {
-                e.preventDefault();
-                onNav?.("#benefits");
-              }}
-            >
+            <a href="#benefits" onClick={e => navTo(e, '#benefits')}>
               Результат
-            </a>
-            <a
-              href="#lead"
-              onClick={(e) => {
-                e.preventDefault();
-                onNav?.("#lead");
-              }}
-            >
-              Заявка
             </a>
           </nav>
 
           <div className={styles.actions}>
             <Button
               variant="ghost"
-              onClick={() => onNav?.("#lead")}
+              onClick={() => onNav?.('#lead')}
               type="button"
             >
               Залишити заявку
@@ -87,7 +50,7 @@ export default function Topbar({ onNav }) {
 
             <Button
               variant="primary"
-              onClick={() => onNav?.("#lead")}
+              onClick={() => onNav?.('#lead')}
               type="button"
             >
               Безкоштовна консультація
