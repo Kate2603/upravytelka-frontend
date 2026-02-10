@@ -24,6 +24,63 @@
     <meta property="og:locale" content="uk_UA" />
 
     <meta name="theme-color" content="#0b0e14" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://upravytelka.com.ua/#website",
+            "url": "https://upravytelka.com.ua/",
+            "name": "Управителька — оренда нерухомості під ключ у Харкові",
+            "inLanguage": "uk-UA"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://upravytelka.com.ua/#webpage",
+            "url": "https://upravytelka.com.ua/",
+            "name": "Управителька — оренда нерухомості під ключ у Харкові",
+            "isPartOf": { "@id": "https://upravytelka.com.ua/#website" },
+            "inLanguage": "uk-UA",
+            "about": { "@id": "https://upravytelka.com.ua/#business" }
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://upravytelka.com.ua/#business",
+            "name": "Управителька",
+            "url": "https://upravytelka.com.ua/",
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "Харків",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Харків",
+                  "addressCountry": "UA"
+                }
+              }
+            ],
+            "serviceType": [
+              "Управління орендою нерухомості",
+              "Оренда нерухомості під ключ"
+            ],
+            "availableLanguage": ["uk-UA", "ru-UA"],
+            "sameAs": ["https://t.me/Kitivell"],
+            "founder": { "@id": "https://upravytelka.com.ua/#person" },
+            "employee": { "@id": "https://upravytelka.com.ua/#person" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://upravytelka.com.ua/#person",
+            "name": "Катерина Величко",
+            "url": "https://upravytelka.com.ua/",
+            "jobTitle": "Управителька нерухомості",
+            "sameAs": ["https://t.me/Kitivell"],
+            "worksFor": { "@id": "https://upravytelka.com.ua/#business" }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
